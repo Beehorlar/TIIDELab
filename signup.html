@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TiideLab Signup form</title>
+    <style>
+        .top {
+            background-image: url(/image/lady.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        input {
+            width: 80%;
+            padding: 20px;
+            margin: 10px 30px;
+            
+        }
+
+        input:focus{
+            outline: none;
+            background-color: salmon;
+            color: seashell;
+        }
+
+       .mycontent {
+           text-align: center;
+           color: white;
+           margin: 15px;
+           font-size: 22px;
+           
+       }
+
+       .instruction {
+           text-align: center;
+           color: white;
+        
+           
+       }
+
+       .icon {
+           display: flex;
+           justify-content: space-between;
+           margin: 0 50px;
+           padding: 50px 200px;
+       }
+
+       .icon img {
+           width: 100px;
+           
+           height: 100px;
+           border-radius: 50%;
+           border: 1px solid rgb(42, 230, 158);
+           
+    
+       }
+
+       .wrapper {
+           width: 30%;
+           font-size: 18px;
+       }
+
+       
+
+       
+
+       
+           
+
+       
+       .form-container{
+           width: 50%;
+       }
+
+       .instruction{
+           width: 50%;
+       }
+
+       @media screen and (max-width: 800px){
+            .form-container .instruction{
+               width: 100%;
+
+           }
+           
+       }
+
+    
+    
+            
+        
+
+
+    </style>
+
+
+
+
+
+
+</head>
+<body>
+
+    <div class="top" style="width: 80%; padding: 140px; margin: auto;">
+
+                <div class="instruction" style="width: 50%; float:left;">
+                    <div style="padding: 100px;">
+
+                   <h1> Vancouver's Best<br> Home Cleaners</h1>
+                   
+                   <p>ProCleaning is a Vancouver's Best cleaning service. For the<br> quality maid service Vancouver relies on, book one of our<br> experienced, background-checked professionals to have your<br> home clean in no time. </p>
+                   </div>
+
+                </div>
+
+                <div style="float:left; background-color: rgba(0,0,0,0.5);" class="form-container">
+
+                    <div class="mycontent">
+
+                    <h2>Request Info & Booking</h2>
+                    <p>Fill this form and we'll contact you as soon as possible</p>
+
+                    </div>
+
+                    <form action="" onsubmit="processForm()" name="SignupForm" class="SignupForm">
+                    
+                        <input type="text" name="fullName" id="fullName" placeholder="Your Name" required>
+                        <input type="email" name="email" id="email" placeholder="Your Email" required>
+                        <input type="text" name="phone" id="phone" placeholder="Your Phone" required>
+                         <input type="submit" value="Request Info & Booking" style="background-color: rgb(13, 209, 13); text-align: center; border: 5px; margin-bottom: 40px; color: white; font-size: 18px;">
+                    
+                    </form>
+ 
+                </div>
+                <div style="clear: left;">
+
+                </div>
+
+    </div>
+
+    <div class="icon">
+
+        <div class="wrapper">
+            <img src="/image/contact.jpg">
+            <h4>Trusted professionals</h4>
+            <p> Our professionals are experienced, friendly and background checked.</p>
+        </div>
+        <div class="wrapper">
+            <img src="/image/planner.png">
+            <h4>Available Everyday</h4>
+            <p>We are available to serve you 7 days per weeks. We will work around your schedule.</p>
+        </div>
+        <div class="wrapper">
+            <img src="/image/in shirt.jpg">
+            <h4>100%/ Money-Back Guarantee</h4>
+            <p>If you are not satisfied, we will refund your money, it is as simple as that.</p>
+        <div>
+
+    </div>
+
+    <div class="last-paragraph">
+
+    <div>
+        <h1>What our Clients Say</h1>
+    </div>
+
+    <div>
+        <img src="/image/work.jpg">
+        Paulo Parra
+        <p>The team was fast and friendly-honestly my house hasn't been this clean in years!</p>
+    </div>
+
+    <div>
+        <img src="/image/friend.jpg">
+        Anna Carolina
+        <p>It feels so great walking in to a flesh, clean apartment everyday. These guys make my place spotless!</p>
+    </div>
+
+    </div>
+
+    
+    <script>
+        function processForm(){
+            fullname = document.getElementById('fullName').value
+            email = document.getElementById('email').value
+            phone = document.getElementById('phone').value
+            alert(fullname)
+            var data ={
+                "fullName": fullname,
+                "email":email,
+                "phone":phone,
+                "isEnabled":true,
+                "roles":["user"]
+            }
+            fetch('https://api.openclass.ng/Register',{
+                method:'POST',
+                body:JSON.stringify(data),
+                headers:{
+                    'content-type':'application/json'
+                }
+            }).then(function(data){
+                alert('congrats')
+            })
+
+        }
+     
+    </script>
+    
+    
+    
+</body>
+</html>
